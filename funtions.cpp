@@ -12,8 +12,8 @@ int getSelection() {
     return input;
 }
 
-void processSelection(int option) {
-    switch(option) {
+void processSelection(int input) {
+    switch(input) {
         case 1 :
         cout << "searching" << endl;
         break;
