@@ -7,8 +7,8 @@ int main() {
     while((c = getchar())!=EOF ){
 	
 	count++;
-	printf("%ld \n",count*sizeof(c));
-
+        printf("%ld \n",count*sizeof(c));	
     }
+        
 }
 
