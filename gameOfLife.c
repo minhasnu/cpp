@@ -4,9 +4,10 @@
 int main() {
 
     int i,j,input,state[SIZE][SIZE], xloc,yloc,innerI,innerJ,population;
-    int populationIndex[SIZE][SIZE];
+    int populationIndex[SIZE][SIZE],iter;
 
-    population = xloc = yloc =  i = j = 0;
+    population = xloc = yloc =  i = j = iter = 0;
+    
     //initialising all states to zero
     for(i = 0; i < SIZE; i++){
         for(j = 0; j < SIZE; j++){
@@ -16,10 +17,16 @@ int main() {
     //getting input
     while((input = getchar()) != EOF ){
         system("clear");
+        if(input == 'i')
+            iter = 1;
+        if(input == 'o')
+            iter = 0;
+        
         //check for existance
         /*****/
         // the population computatiom starts when g is pressed
-        if(input == 'g') {
+        // iteration can be started by pressing i and stopped using o
+        if(input == 'g' || iter == 1) {
             for(i = 0; i < SIZE; i++){
                 for(j = 0; j < SIZE; j++){
                     for(innerI = -1; innerI <= 1; innerI++ ) {
@@ -53,12 +60,11 @@ int main() {
         for(i = 0; i < SIZE; i++){
             for(j = 0; j < SIZE; j++){
                 if(j == xloc && i == yloc || state[i][j] == 1){            
-                    printf(" o");
+                    printf(" O");
                 } else  printf(" -");         
             }
             printf("\n");
         }   
-        printf("\n");
         if(input == 'd')
             xloc++; 
         else if (input == 'w')
